@@ -5,8 +5,10 @@ public class GestioneCF {
 	public  CodiceFiscale calcoloCodiceFiscale(String cognome, String nome, String dataDiNascita, String comuneDiNascita, String sesso) {
 		CodiceFiscale codiceFiscale = new CodiceFiscale();
 		String codFis = "";
-		cognome.toUpperCase();
-		nome.toUpperCase();
+		cognome = cognome.toUpperCase();
+		cognome = cognome.replace(" ", "");
+		nome = nome.toUpperCase();
+		nome = nome.replace(" ", "");
 
 		//CODICE COGNOME
 		/* calcolo prime 3 lettere */
@@ -131,20 +133,17 @@ public class GestioneCF {
 		}
 		}
 		//GIORNO
-		int giorno = 0;
-		if (dataDiNascita.charAt(0) == '0')
-			giorno = Integer.parseInt(dataDiNascita.substring(0, 1));
-		else
-			giorno = Integer.parseInt(dataDiNascita.substring(0, 2));
-		if (sesso.equals("M"))
-			codFis += giorno;
-		else {
-			giorno += 40;
-			codFis += Integer.toString(giorno);
-		}
+		String giorno ="";
+	    giorno = dataDiNascita.substring(0, 2);
+	    if (sesso.equals("M"))
+	      codFis += giorno;
+	    else {
+	      giorno += 40;
+	      codFis += giorno;
+	    }
 		//COMUNE
 		ServicesCrud crud = new ServicesCrud("generaCF");
-		String codReg = (String) crud.jpaRead("SELECT cf.CodFisco FROM comuni cf where cf.comune="+ comuneDiNascita).getSingleResult();
+		String codReg = (String) crud.jpaRead("SELECT cf.codFisco FROM Comuni cf where cf.comune=\'"+comuneDiNascita+"\'").getSingleResult();
 	     if(codReg != null){
 	      codFis += codReg;
 	     } else {
@@ -152,7 +151,7 @@ public class GestioneCF {
 	     }
 		//CARATTERE DI CONTROLLO
 		int sommaPari = 0;
-		for (int i = 1; i <= 13; i += 2) {
+		for (int i = 1; i < 13; i += 2) {
 			switch (codFis.charAt(i)) {
 			case '0': {
 				sommaPari += 0;
@@ -301,7 +300,7 @@ public class GestioneCF {
 			}
 		}
 		int sommaDispari = 0;
-		for (int i = 0; i <= 14; i += 2) {
+		for (int i = 0; i < 14; i += 2) {
 			switch (codFis.charAt(i)) {
 			case '0': {
 				sommaDispari += 1;

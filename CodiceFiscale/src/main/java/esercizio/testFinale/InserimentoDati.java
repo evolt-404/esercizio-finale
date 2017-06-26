@@ -17,7 +17,7 @@ import esercizio.testFinale.ServicesCrud;
 public class InserimentoDati extends HttpServlet {
 
 	GestioneCF creaCF = new GestioneCF();
-	ServicesCrud crud_services = new ServicesCrud("GeneraCF");
+	ServicesCrud crud_services = new ServicesCrud("generaCF");
 	
 	
 	@Override
