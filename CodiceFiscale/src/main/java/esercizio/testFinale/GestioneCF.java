@@ -151,7 +151,7 @@ public class GestioneCF {
 	     }
 		//CARATTERE DI CONTROLLO
 		int sommaPari = 0;
-		for (int i = 1; i < 13; i += 2) {
+		for (int i = 1; i <= 13; i += 2) {
 			switch (codFis.charAt(i)) {
 			case '0': {
 				sommaPari += 0;
@@ -300,7 +300,7 @@ public class GestioneCF {
 			}
 		}
 		int sommaDispari = 0;
-		for (int i = 0; i < 14; i += 2) {
+		for (int i = 0; i < 15; i += 2) {
 			switch (codFis.charAt(i)) {
 			case '0': {
 				sommaDispari += 1;

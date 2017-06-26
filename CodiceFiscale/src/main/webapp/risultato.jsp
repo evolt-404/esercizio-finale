@@ -9,6 +9,8 @@
 <body>
 	
 	Codice Fiscale: <%=request.getAttribute("codiceFiscale") %>
+	
+	
 
 </body>
 </html>
