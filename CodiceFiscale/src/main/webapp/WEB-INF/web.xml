@@ -6,7 +6,7 @@
 	<display-name>CodiceFiscale</display-name>
 	<servlet>
 		<servlet-name>CodiceFiscale</servlet-name>
-		<servlet-class>gestione.libreria.InserimentoDati</servlet-class>
+		<servlet-class>esercizio.testFinale.InserimentoDati</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
