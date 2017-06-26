@@ -15,7 +15,7 @@
 
 		Cognome: <br /> <input type="text" name="cognome"><br />
 		Nome: <br /> <input type="text" name="nome"><br />
-		Data di Nascita<br /> <input type="text" name="dataDiNascita"><br />
+		Data di Nascita<br /> <input type="text" name="dataDiNascita" placeholder="gg/mm/aaaa"><br />
 		Comune di Nascita<br /> <input type="text" name="comuneDiNascita"><br />
 
 		<select name="sesso">
