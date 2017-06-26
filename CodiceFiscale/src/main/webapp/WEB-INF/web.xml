@@ -6,7 +6,7 @@
 	<display-name>CodiceFiscale</display-name>
 	<servlet>
 		<servlet-name>CodiceFiscale</servlet-name>
-		<servlet-class>gestione.libreria.******</servlet-class>
+		<servlet-class>gestione.libreria.InserimentoDati</servlet-class>
 	</servlet>
 
 	<servlet-mapping>

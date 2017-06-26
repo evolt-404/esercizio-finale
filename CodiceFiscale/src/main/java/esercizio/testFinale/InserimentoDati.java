@@ -16,6 +16,10 @@ import esercizio.testFinale.ServicesCrud;
 
 public class InserimentoDati extends HttpServlet {
 
+	GestioneCF creaCF = new GestioneCF();
+	ServicesCrud crud_services = new ServicesCrud("GeneraCF");
+	
+	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -28,15 +32,19 @@ public class InserimentoDati extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-
-
 		String cognome = req.getParameter("cognome");
 		String nome = req.getParameter("nome");
 		String dataDiNascita = req.getParameter("dataDiNascita");
 		String comuneDiNascita = req.getParameter("comuneDiNascita");
-
-		//INVOCARE METODO CREAZIONE CODICEFISCALE
-
+		String sesso = req.getParameter("sesso");
+		
+		CodiceFiscale cfTemp = creaCF.calcoloCodiceFiscale(cognome, nome, dataDiNascita, comuneDiNascita, sesso);
+		
+		crud_services.jpaCreate(cfTemp);
+		crud_services.closeLogicaJPA();
+		
+		req.setAttribute("codiceFiscale", cfTemp.getCodiceFiscale());
+		
 		RequestDispatcher requestDispatcherObj = req.getRequestDispatcher("/risultato.jsp");
 		requestDispatcherObj.forward(req, resp);
 

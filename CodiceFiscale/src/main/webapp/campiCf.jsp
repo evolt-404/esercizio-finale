@@ -11,7 +11,7 @@
 </head>
 <body>
 	
-	<form action="ComboBox" method="post">
+	<form action="CodiceFiscale" method="post">
 
 		Cognome: <br /> <input type="text" name="cognome"><br />
 		Nome: <br /> <input type="text" name="nome"><br />
